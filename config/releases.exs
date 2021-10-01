@@ -1,4 +1,4 @@
-import Mix.Config
+import Config
 
 database_url =
   System.get_env("DATABASE_URL") ||
