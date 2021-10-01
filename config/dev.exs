@@ -3,7 +3,7 @@ use Mix.Config
 # Configure your database
 config :offer_hunters, OfferHunters.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "@dmin",
   database: "offer_hunters_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

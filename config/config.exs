@@ -13,10 +13,10 @@ config :offer_hunters,
 # Configures the endpoint
 config :offer_hunters, OfferHuntersWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "Z0bUs0C/pF3q8bS65CmgQHzPmWmyioSndw/7oJ6DuCGNmAt5v4QfuzxajKPu4WPl",
+  secret_key_base: "NilA1xa+ouHYphUT0Yrk8oWiqHix1mKg36tAJXR8GYhgi0/DKCigo+/EiIMGVRvf",
   render_errors: [view: OfferHuntersWeb.ErrorView, accepts: ~w(json), layout: false],
   pubsub_server: OfferHunters.PubSub,
-  live_view: [signing_salt: "cR6id3XR"]
+  live_view: [signing_salt: "ibZR3ztW"]
 
 # Configures Elixir's Logger
 config :logger, :console,

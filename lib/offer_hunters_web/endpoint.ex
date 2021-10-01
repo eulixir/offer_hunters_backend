@@ -7,7 +7,7 @@ defmodule OfferHuntersWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_offer_hunters_key",
-    signing_salt: "stARtW2c"
+    signing_salt: "DvqmronQ"
   ]
 
   socket "/socket", OfferHuntersWeb.UserSocket,
