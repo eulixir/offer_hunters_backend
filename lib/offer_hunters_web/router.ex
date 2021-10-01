@@ -7,6 +7,8 @@ defmodule OfferHuntersWeb.Router do
 
   scope "/api", OfferHuntersWeb do
     pipe_through :api
+
+    get "/home", HomeController, :index
   end
 
   # Enables LiveDashboard only for development
