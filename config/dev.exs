@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :offer_hunters, OfferHunters.Repo,
-  username: "postgres",
-  password: "@dmin",
+username: System.get_env("POSTGRES_USERNAME"),
+password: System.get_env("POSTGRES_PASSWORD"),
   database: "offer_hunters_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
