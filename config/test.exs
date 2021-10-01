@@ -13,7 +13,7 @@ config :offer_hunters, OfferHunters.Repo,
   pool: Ecto.Adapters.SQL.Sandbox
 
   if System.get_env("GITHUB_ACTIONS") do
-    config :exmoveit, Exmoveit.Repo,
+    config :offer_hunters, OfferHunters.Repo,
       username: "postgres",
       password: "postgres"
   end
