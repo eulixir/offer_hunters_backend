@@ -1,4 +1,3 @@
-
 import Mix.Config
 
 database_url =
@@ -28,4 +27,4 @@ config :offer_hunters, OfferHuntersWeb.Endpoint,
   url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
   secret_key_base: secret_key_base
 
-    config :offer_hunters, OfferHuntersWeb.Endpoint, server: true
+config :offer_hunters, OfferHuntersWeb.Endpoint, server: true
