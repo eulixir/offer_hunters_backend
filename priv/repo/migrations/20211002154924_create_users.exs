@@ -5,7 +5,7 @@ defmodule OfferHunters.Repo.Migrations.CreateUsers do
     create table(:users, primary_key: false) do
       add :id, :binary_id, primary_key: true
       add :email, :string
-      add :profile_image, :string
+      add :profile_picture, :string
       add :name, :string
 
       timestamps()

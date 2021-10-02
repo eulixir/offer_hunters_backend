@@ -5,14 +5,14 @@ defmodule OfferHunters.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_params [:email, :profile_image, :name]
+  @required_params [:email, :profile_picture, :name]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
   schema "users" do
     field :email, :string
     field :name, :string
-    field :profile_image, :string
+    field :profile_picture, :string
 
     timestamps()
   end

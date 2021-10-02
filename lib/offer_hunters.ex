@@ -1,9 +1,9 @@
 defmodule OfferHunters do
   @moduledoc """
-  OfferHunters keeps the contexts that define your domain
-  and business logic.
-
-  Contexts are also responsible for managing your data, regardless
-  if it comes from the database, an external API or others.
+  Fachade to turn application more fexible and more friendly to developer
   """
+
+  alias OfferHunters.Users.Create, as: UsersCreate
+
+  defdelegate create_user(params), to: UsersCreate, as: :call
 end
