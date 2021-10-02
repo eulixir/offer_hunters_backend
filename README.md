@@ -4,6 +4,8 @@
 
 ![Build Status](https://img.shields.io/badge/version%20-v1.0.0-1C1E26?labelColor=1C1E26&color=9466ff)
 
+[![codecov](https://codecov.io/gh/joaopealves/offer_hunters-backend/branch/main/graph/badge.svg?token=WDV4RSBOH2)](https://codecov.io/gh/joaopealves/offer_hunters-backend)
+
 </div>
 
 # Features

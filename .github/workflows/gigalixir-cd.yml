@@ -66,6 +66,11 @@ jobs:
       - name: Check Formatting
         run: mix format --check-formatted
 
+      - name: Check coverage
+        run: mix coveralls.json
+        env:
+          MIX_ENV: test
+
       - name: Run codecov script
         run: bash <(curl -s https://codecov.io/bash)
         env:
