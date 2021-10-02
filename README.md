@@ -36,7 +36,6 @@ To run the project, try write in your terminal `mix phx.server` and see the magi
 > You can run `mix test` to see the tests status
 
  <br/>
-
 # Contributing
 
 Contributions are always welcome.

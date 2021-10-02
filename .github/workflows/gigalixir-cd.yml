@@ -65,3 +65,8 @@ jobs:
 
       - name: Check Formatting
         run: mix format --check-formatted
+
+      - name: Run codecov script
+        run: bash <(curl -s https://codecov.io/bash)
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
