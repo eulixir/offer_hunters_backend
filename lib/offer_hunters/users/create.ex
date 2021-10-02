@@ -1,5 +1,4 @@
 defmodule OfferHunters.Users.Create do
-
   alias OfferHunters.{User, Repo}
 
   def call(%{name: _name, email: _email, profile_picture: _profile_picture} = params) do
