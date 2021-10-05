@@ -11,7 +11,14 @@ defmodule OfferHunters.MixProject do
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
-      test_coverage: [tool: ExCoveralls, ignore_modules: [OfferHuntersWeb.UserSocket, OfferHunters.DataCase, OfferHuntersWeb.ConnCase]],
+      test_coverage: [
+        tool: ExCoveralls,
+        ignore_modules: [
+          OfferHuntersWeb.UserSocket,
+          OfferHunters.DataCase,
+          OfferHuntersWeb.ConnCase
+        ]
+      ],
       preferred_cli_env: [
         coveralls: :test,
         "coveralls.detail": :test,

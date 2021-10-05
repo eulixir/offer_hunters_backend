@@ -5,12 +5,14 @@ defmodule OfferHunters.Users.Create do
     user = User.changeset(params)
 
     case Repo.insert(user) do
-      {:ok, user} -> {:ok, user}
+      {:ok, user} ->
+        {:ok, user}
 
       {:error, %Ecto.Changeset{errors: [email: {"has already been taken", _reason}]}} ->
         {:error, Error.build(:bad_request, "The user is a already registered in database")}
 
-      {:error, result} -> {:error, Error.build(:bad_request, result)}
+      {:error, result} ->
+        {:error, Error.build(:bad_request, result)}
     end
   end
 
