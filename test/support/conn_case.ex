@@ -17,6 +17,8 @@ defmodule OfferHuntersWeb.ConnCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       # Import conveniences for testing with connections
@@ -32,10 +34,10 @@ defmodule OfferHuntersWeb.ConnCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(OfferHunters.Repo)
+    :ok = Sandbox.checkout(OfferHunters.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(OfferHunters.Repo, {:shared, self()})
+      Sandbox.mode(OfferHunters.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

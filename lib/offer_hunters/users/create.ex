@@ -1,5 +1,9 @@
 defmodule OfferHunters.Users.Create do
-  alias OfferHunters.{Error, User, Repo}
+  @moduledoc """
+    Inserts a user into the database.
+  """
+
+  alias OfferHunters.{Error, Repo, User}
 
   def call(%{} = params) do
     user = User.changeset(params)
