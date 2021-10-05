@@ -6,13 +6,13 @@ on:
       - main
 jobs:
   deploy:
-    if: github.ref == 'refs/heads/master' # Only run this job if it is on the main branch
+    if: github.ref == 'refs/heads/main' # Only run this job if it is on the main branch
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: master # Check out main instead of the latest commit
+          ref: main # Check out main instead of the latest commit
           fetch-depth: 0 # Checkout the whole branch
 
       - uses: actions/setup-python@v2
