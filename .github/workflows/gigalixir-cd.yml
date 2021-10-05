@@ -1,9 +1,8 @@
-name: Deploy to Gigalixir
-
-on:
+'on':
   push:
     branches:
       - main
+name: Deploy to Gigalixir
 jobs:
   deploy:
     if: github.ref == 'refs/heads/main' # Only run this job if it is on the main branch
