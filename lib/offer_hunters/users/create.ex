@@ -1,12 +1,18 @@
 defmodule OfferHunters.Users.Create do
-  alias OfferHunters.{User, Repo}
+  alias OfferHunters.{Error, User, Repo}
 
-  def call(%{name: _name, email: _email, profile_picture: _profile_picture} = params) do
+  def call(%{} = params) do
     user = User.changeset(params)
 
     case Repo.insert(user) do
       {:ok, user} -> {:ok, user}
-      {:error, error} -> {:error, error}
+
+      {:error, %Ecto.Changeset{errors: [email: {"has already been taken", _reason}]}} ->
+        {:error, Error.build(:bad_request, "The user is a already registered in database")}
+
+      {:error, result} -> {:error, Error.build(:bad_request, result)}
     end
   end
+
+  def call(_anything), do: {:error, Error.build(:bad_request, "Insert the user in a map format")}
 end

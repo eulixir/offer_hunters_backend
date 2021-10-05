@@ -11,6 +11,12 @@ defmodule OfferHuntersWeb.Router do
     get "/home", HomeController, :index
   end
 
+  scope "/user", OfferHuntersWeb do
+    pipe_through :api
+
+    post "/create", UserController, :create
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put
