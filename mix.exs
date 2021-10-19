@@ -58,6 +58,7 @@ defmodule OfferHunters.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:postgrex, ">= 0.0.0"},
       {:phoenix, "~> 1.5.8"},
+      {:cors_plug, "~> 2.0"},
       {:ecto_sql, "~> 3.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"}
