@@ -5,15 +5,6 @@ defmodule OfferHunters.Offers.Create do
 
   alias OfferHunters.Error
 
-  %{
-    product: "product",
-    description: "description",
-    promotion_link: "promotion_link",
-    image: "image",
-    expiration_date: "expiration_date",
-    value: 0.05
-  }
-
   def call(
         %{
           product: _product,
