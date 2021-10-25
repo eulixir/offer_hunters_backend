@@ -15,6 +15,10 @@ defmodule OfferHuntersWeb.Router do
     pipe_through :api
 
     post "/create", UserController, :create
+
+    get "/get_all", UserController, :get_all
+
+    get "/get_by_email", UserController, :get_by_email
   end
 
   scope "/offer", OfferHuntersWeb do
