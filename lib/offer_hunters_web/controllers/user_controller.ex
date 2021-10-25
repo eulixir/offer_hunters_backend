@@ -17,4 +17,20 @@ defmodule OfferHuntersWeb.UserController do
       |> render("created.json", user: user)
     end
   end
+
+  def get_all(conn, _params) do
+    users = OfferHunters.get_all_users()
+
+    conn
+    |> put_status(:ok)
+    |> render("get_all.json", users: users)
+  end
+
+  def get_by_email(conn, %{"email" => email}) do
+    {:ok, user} = OfferHunters.get_by_email(email)
+
+    conn
+    |> put_status(:ok)
+    |> render("user.json", user: user)
+  end
 end

@@ -4,8 +4,6 @@ defmodule OfferHunters.Offers.Create do
   """
   alias OfferHunters.{Offer, Repo, User}
 
-  alias OfferHunters.Users.Get
-
   alias OfferHunters.Error
 
   def call(
@@ -19,7 +17,7 @@ defmodule OfferHunters.Offers.Create do
         } = params,
         email
       ) do
-    case Get.get_email(email) do
+    case OfferHunters.get_by_email(email) do
       {:ok, %User{id: id}} ->
         create_offer(params, id)
 
