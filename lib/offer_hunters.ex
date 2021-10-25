@@ -3,8 +3,8 @@ defmodule OfferHunters do
     Fachade to turn application more fexible and more friendly to developer
   """
 
-  alias OfferHunters.Users.Create, as: UsersCreate
   alias OfferHunters.Offers.Create, as: OffersCreate
+  alias OfferHunters.Users.Create, as: UsersCreate
 
   defdelegate create_user(params), to: UsersCreate, as: :call
 
