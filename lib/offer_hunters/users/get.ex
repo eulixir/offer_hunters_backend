@@ -1,4 +1,7 @@
 defmodule OfferHunters.Users.Get do
+  @moduledoc """
+    Get Users data
+  """
   alias OfferHunters.{Repo, User}
 
   def get_email(email) do

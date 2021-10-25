@@ -1,5 +1,8 @@
 defmodule OfferHunters.Offers.Create do
-  alias OfferHunters.{Repo, Offer, User}
+  @moduledoc """
+    Inserts an offer into database
+  """
+  alias OfferHunters.{Offer, Repo, User}
 
   alias OfferHunters.Users.Get
 
