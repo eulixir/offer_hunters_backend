@@ -38,5 +38,5 @@ defmodule OfferHunters.Offers.Create do
 
   defp handle_insert({:ok, %Offer{}} = result), do: result
 
-  defp handle_insert({:error, result}), do: {:error, %{result: result, status: :bad_request}}
+  defp handle_insert({:error, result}), do: {:error, Error.build(:bad_request, result)}
 end
