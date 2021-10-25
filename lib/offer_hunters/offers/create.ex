@@ -2,7 +2,7 @@ defmodule OfferHunters.Offers.Create do
   @moduledoc """
     Inserts an offer into database
   """
-  alias OfferHunters.{Offer, Repo, User}
+  alias OfferHunters.{Error, Offer, Repo, User}
 
   alias OfferHunters.Error
 
@@ -21,8 +21,8 @@ defmodule OfferHunters.Offers.Create do
       {:ok, %User{id: id}} ->
         create_offer(params, id)
 
-      {:error, "Email does not exist"} ->
-        {:error, Error.build(:not_found, "Email does not exist")}
+      {:error, %Error{}} = error ->
+        error
     end
   end
 
