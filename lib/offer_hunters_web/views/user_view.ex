@@ -5,6 +5,6 @@ defmodule OfferHuntersWeb.UserView do
 
   def render("show.json", %{user: user}), do: %{user: user}
 
-  def render("deleted.json", %{user_email: user_email}),
-    do: %{message: "The user #{user_email} has been deleted"}
+  def render("deleted.json", %{email: email}),
+    do: %{message: "The user #{email} has been deleted"}
 end

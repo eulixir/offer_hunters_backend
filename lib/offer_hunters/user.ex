@@ -13,6 +13,7 @@ defmodule OfferHunters.User do
     field :email, :string
     field :name, :string
     field :profile_picture, :string
+    has_many :offers, OfferHunters.Offer
 
     timestamps()
   end
