@@ -9,7 +9,7 @@ defmodule OfferHunters.Repo.Migrations.CreateOffers do
       add :promotion_link, :string
       add :image, :string
       add :expiration_date, :string
-      add :value, :float
+      add :value, :decimal
 
       add :user_id, references(:users, type: :binary_id)
 
