@@ -16,7 +16,7 @@ defmodule OfferHunters.Offers.Create do
         } = params,
         email
       ) do
-    case OfferHunters.get_by_email(email) do
+    case OfferHunters.get_user_by_email(email) do
       {:ok, %User{id: id}} ->
         create_offer(params, id)
 

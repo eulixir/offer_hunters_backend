@@ -25,6 +25,10 @@ defmodule OfferHuntersWeb.Router do
     pipe_through :api
 
     post "/create", OfferController, :create
+
+    get "/get_by_id", OfferController, :get_by_id
+
+    get "/get_by_query", OfferController, :get_by_query
   end
 
   # Enables LiveDashboard only for development

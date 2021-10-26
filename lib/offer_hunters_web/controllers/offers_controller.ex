@@ -29,4 +29,22 @@ defmodule OfferHuntersWeb.OfferController do
       |> render("created.json", offer: offer)
     end
   end
+
+  def get_by_id(conn, %{"id" => id}) do
+    with {:ok, offer} <-
+           OfferHunters.get_offer_by_id(id) do
+      conn
+      |> put_status(:ok)
+      |> render("offer.json", offer: offer)
+    end
+  end
+
+  def get_by_query(conn, %{"label" => params}) do
+    with {:ok, offers} <-
+           OfferHunters.get_offer_by_query(params) do
+      conn
+      |> put_status(:ok)
+      |> render("offers.json", offers: offers)
+    end
+  end
 end

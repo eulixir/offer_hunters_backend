@@ -8,9 +8,7 @@ defmodule OfferHunters.Offers.Get do
   alias OfferHunters.{Error, Offer, Repo}
 
   def by_query(params) do
-    query = Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%"))
-
-    query
+    {:ok, Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%"))}
   end
 
   def by_id(id) do
