@@ -20,7 +20,7 @@ defmodule OfferHunters.Offers.Create do
       {:ok, %User{id: id}} ->
         create_offer(params, id)
 
-      {:error, %Error{}} = error ->
+      error = error ->
         error
     end
   end
