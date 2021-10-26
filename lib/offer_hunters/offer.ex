@@ -8,7 +8,6 @@ defmodule OfferHunters.Offer do
   alias OfferHunters.User
 
   @required_params [
-    :product,
     :description,
     :promotion_link,
     :image,
@@ -20,7 +19,6 @@ defmodule OfferHunters.Offer do
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
   schema "offers" do
-    field :product, :string
     field :description, :string
     field :promotion_link, :string
     field :image, :string

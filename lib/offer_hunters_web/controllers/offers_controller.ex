@@ -6,7 +6,6 @@ defmodule OfferHuntersWeb.OfferController do
   action_fallback OfferHuntersWeb.FallbackController
 
   def create(conn, %{
-        "product" => product,
         "description" => description,
         "promotion_link" => promotion_link,
         "image" => image,
@@ -17,7 +16,6 @@ defmodule OfferHuntersWeb.OfferController do
     with {:ok, %Offer{} = offer} <-
            OfferHunters.create_offer(
              %{
-               product: product,
                description: description,
                promotion_link: promotion_link,
                image: image,

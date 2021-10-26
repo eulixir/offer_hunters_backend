@@ -8,7 +8,6 @@ defmodule OfferHunters.Offers.Create do
 
   def call(
         %{
-          product: _product,
           description: _description,
           promotion_link: _promotion_link,
           image: _image,
