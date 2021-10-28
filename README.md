@@ -26,7 +26,7 @@ Note, if you look in the directory you will find a file called `model.env`. This
 
 Like almost all languages, Elixir needs dependencies, to install this you can run `mix deps.get`
 
-### 4 - Create a database setup
+### 4 - Create the database setup
 
 To create a database setup, you can check if your database password and name are equal to was placed in env file, after this run `mix ecto.setup` to create and migrate your database
 
