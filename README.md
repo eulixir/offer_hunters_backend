@@ -37,7 +37,6 @@ To run the project, try write in your terminal `mix phx.server` and see the magi
 
 > You can run `mix test` to see the tests status
 
- <br/>
 # Contributing
 
 Contributions are always welcome.
@@ -58,6 +57,10 @@ There's a bunch of ways you can contribute to this project, like by:
 - [Erlang](https://www.erlang.org)
 - [Phoenix](https://phoenixframework.org)
 - [Postgres](https://www.postgresql.org)
+
+# Frontend
+
+The frontend is in a stage development, you can check [here](https://github.com/Ryandls/offers-hunters).
 
 # Getting started
 
