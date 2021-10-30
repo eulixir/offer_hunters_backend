@@ -13,7 +13,7 @@ defmodule OfferHunters.Offer do
     :image,
     :expiration_date,
     :value,
-    :user_id
+    :user
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
