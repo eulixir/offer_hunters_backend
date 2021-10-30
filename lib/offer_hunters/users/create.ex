@@ -23,11 +23,11 @@ defmodule OfferHunters.Users.Create do
         }}
 
   iex> OfferHunters.Users.Create.call(%{email: "jp@banana.com"})
-  {:error,
-    %OfferHunters.Error{
-      result: "The user is a already registered in database",
-      status: :bad_request
-  }}
+      {:error,
+        %OfferHunters.Error{
+          result: "The user is a already registered in database",
+          status: :bad_request
+      }}
 
   iex> OfferHunters.Users.Create.call(%{})
       {:error,
