@@ -5,7 +5,7 @@ defmodule OfferHunters.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_params [:email, :profile_picture, :name]
+  @required_params [:email, :profile_picture, :name, :offers]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 

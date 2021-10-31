@@ -13,7 +13,7 @@ defmodule OfferHunters.Offer do
     :image,
     :expiration_date,
     :value,
-    :user
+    :user_id
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
@@ -39,5 +39,6 @@ defmodule OfferHunters.Offer do
     |> cast(attrs, @required_params)
     |> validate_required(@required_params)
     |> unique_constraint(:promotion_link)
+    |> cast_assoc(:user)
   end
 end

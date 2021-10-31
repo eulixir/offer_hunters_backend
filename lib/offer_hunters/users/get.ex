@@ -46,7 +46,7 @@ defmodule OfferHunters.Users.Get do
           | {:error, %OfferHunters.Error{result: String.t(), status: :bad_request}}
 
   def get_by_email(email) do
-    case Repo.get_by(User, email: email) do
+    case Repo.preload(Repo.get_by(User, email: email), :offers) do
       %User{} = user -> {:ok, user}
       nil -> {:error, Error.build(:bad_request, "Email does not exist")}
     end
@@ -63,12 +63,17 @@ defmodule OfferHunters.Users.Get do
             %OfferHunters.User{
               email: String.t(),
               id: String.t(),
-              inserted_at: Date,
               name: String.t(),
               profile_picture: String.t(),
-              updated_at: Date
+              offers: %{
+                description: String.t(),
+                promotion_link: String.t(),
+                image: bitstring(),
+                expiration_date: Date.t(),
+                value: Decimal.t()
+              }
             }
           ]
 
-  def get_all_users, do: Repo.all(User)
+  def get_all_users, do: Repo.preload(Repo.all(User), :offers)
 end
