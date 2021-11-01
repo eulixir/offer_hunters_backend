@@ -30,4 +30,22 @@ defmodule OfferHunters.Users.GetTest do
               }} == response
     end
   end
+
+  describe "all_users/0" do
+    test "When called, returns a list of users" do
+      %User{id: id} = insert(:user)
+
+      response = Get.all_users()
+
+      assert [
+               %OfferHunters.User{
+                 email: "jp@banana.com",
+                 id: ^id,
+                 name: "jp",
+                 offers: [],
+                 profile_picture: "src/banana"
+               }
+             ] = response
+    end
+  end
 end
