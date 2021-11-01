@@ -17,8 +17,6 @@ defmodule OfferHunters.OfferTest do
         |> build()
         |> Offer.changeset()
 
-      IO.inspect(response)
-
       assert %Changeset{
                changes: %{
                  description: "Placa de vídeo Galax GeForce RTX 3080 HOF",
