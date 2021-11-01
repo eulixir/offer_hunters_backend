@@ -8,7 +8,7 @@ defmodule OfferHunters.Users.Get do
   Recive the email and seacrh this into the database.
 
   ## Examples
-  iex> OfferHunters.Users.Get.get_by_email("jp@banana.com")
+  iex> OfferHunters.Users.Get.by_email("jp@banana.com")
         {:ok,
           %OfferHunters.User{
             __meta__: #Ecto.Schema.Metadata<:loaded, "users">,
@@ -38,17 +38,17 @@ defmodule OfferHunters.Users.Get do
           data: #OfferHunters.User<>,
           valid?: false
         >,
-        status: :bad_request
+        status: :not_found
       }}
   """
-  @spec get_by_email(String.t()) ::
+  @spec by_email(String.t()) ::
           {:ok, %User{}}
-          | {:error, %OfferHunters.Error{result: String.t(), status: :bad_request}}
+          | {:error, %OfferHunters.Error{result: String.t(), status: :not_found}}
 
-  def get_by_email(email) do
+  def by_email(email) do
     case Repo.preload(Repo.get_by(User, email: email), :offers) do
       %User{} = user -> {:ok, user}
-      nil -> {:error, Error.build(:bad_request, "Email does not exist")}
+      nil -> {:error, Error.build(:not_found, "Email does not exist")}
     end
   end
 
@@ -56,9 +56,9 @@ defmodule OfferHunters.Users.Get do
   When called, return a list of all users
 
   ## Examples
-  iex> OfferHunters.Users.Get.get_all_users()
+  iex> OfferHunters.Users.Get.all_users()
   """
-  @spec get_all_users() ::
+  @spec all_users() ::
           [
             %OfferHunters.User{
               email: String.t(),
@@ -75,5 +75,5 @@ defmodule OfferHunters.Users.Get do
             }
           ]
 
-  def get_all_users, do: Repo.preload(Repo.all(User), :offers)
+  def all_users, do: Repo.preload(Repo.all(User), :offers)
 end
