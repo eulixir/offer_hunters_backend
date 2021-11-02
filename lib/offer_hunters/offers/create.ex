@@ -78,13 +78,7 @@ defmodule OfferHunters.Offers.Create do
           | {:error, %OfferHunters.Error{result: String.t(), status: :bad_request}}
 
   def call(
-        %{
-          description: _description,
-          promotion_link: _promotion_link,
-          image: _image,
-          expiration_date: _expiration_date,
-          value: _value
-        } = params,
+        %{} = params,
         email
       ) do
     email

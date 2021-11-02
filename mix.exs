@@ -54,6 +54,7 @@ defmodule OfferHunters.MixProject do
       {:phoenix_live_dashboard, "~> 0.4"},
       {:telemetry_metrics, "~> 0.4"},
       {:telemetry_poller, "~> 0.4"},
+      {:ex_machina, "~> 2.7.0"},
       {:phoenix_ecto, "~> 4.1"},
       {:plug_cowboy, "~> 2.0"},
       {:postgrex, ">= 0.0.0"},
