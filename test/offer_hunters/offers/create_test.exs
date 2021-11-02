@@ -1,6 +1,6 @@
 defmodule OfferHunters.Offers.CreateTest do
   @moduledoc """
-    Tests for create user module
+    Tests for create offer module
   """
   use OfferHunters.DataCase, async: true
 
