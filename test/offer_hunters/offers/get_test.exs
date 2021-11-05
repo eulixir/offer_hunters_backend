@@ -6,7 +6,7 @@ defmodule OfferHunters.Offers.GetTest do
 
   import OfferHunters.Factory
 
-  alias OfferHunters.{User, Offer, Offers.Get}
+  alias OfferHunters.{Offer, Offers.Get, User}
 
   describe "by_query/1" do
     test "When the terms on query exsists, returns a list of offers" do

@@ -6,7 +6,7 @@ defmodule OfferHunters.Offers.CreateTest do
 
   import OfferHunters.Factory
 
-  alias OfferHunters.{Error, User, Offer, Offers.Create}
+  alias OfferHunters.{Error, Offer, Offers.Create, User}
 
   describe "call/1" do
     test "When all params are valid, creates the user" do
