@@ -6,7 +6,7 @@ defmodule OfferHunters.Repo.Migrations.CreateOffers do
       add :id, :binary_id, primary_key: true
       add :description, :string
       add :promotion_link, :string
-      add :image, :string
+      add :image, :text
       add :expiration_date, :string
       add :value, :decimal
 
