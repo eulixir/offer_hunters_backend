@@ -26,6 +26,7 @@ defmodule OfferHunters.Offer do
     field :value, :decimal
 
     belongs_to :user, User, type: :binary_id
+    has_many :comments, OfferHunters.Comment
 
     timestamps()
   end

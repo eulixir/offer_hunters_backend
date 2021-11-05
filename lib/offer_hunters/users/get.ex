@@ -76,4 +76,11 @@ defmodule OfferHunters.Users.Get do
           ]
 
   def all_users, do: Repo.preload(Repo.all(User), :offers)
+
+  def by_id(id) do
+    case Repo.get(User, id) do
+      %User{} = user -> {:ok, user}
+      nil -> {:error, Error.build(:not_found, "Email does not exist")}
+    end
+  end
 end

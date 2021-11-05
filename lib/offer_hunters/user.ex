@@ -14,6 +14,7 @@ defmodule OfferHunters.User do
     field :name, :string
     field :profile_picture, :string
     has_many :offers, OfferHunters.Offer
+    has_many :comments, OfferHunters.Comment
 
     timestamps()
   end

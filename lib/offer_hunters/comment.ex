@@ -16,11 +16,7 @@ defmodule OfferHunters.Comment do
   @derive {Jason.Encoder, only: [:id] ++ @required_params ++ [:user, :offer]}
 
   schema "comments" do
-    field :description, :string
-    field :promotion_link, :string
-    field :image, :string
-    field :expiration_date, :string
-    field :value, :decimal
+    field :comment, :string
 
     belongs_to :user, User, type: :binary_id
     belongs_to :offer, Offer, type: :binary_id

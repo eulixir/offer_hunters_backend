@@ -16,6 +16,8 @@ defmodule OfferHunters do
 
   defdelegate get_user_by_email(params), to: UsersGet, as: :by_email
 
+  defdelegate get_user_by_id(id), to: UsersGet, as: :by_id
+
   defdelegate create_offer(params, email), to: OffersCreate, as: :call
 
   defdelegate get_offer_by_query(params), to: OffersGet, as: :by_query
