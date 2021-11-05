@@ -47,4 +47,15 @@ defmodule OfferHuntersWeb.OfferController do
       |> render("offers.json", offers: offers)
     end
   end
+
+  def delete_by_id(conn, %{"id" => id}) do
+    with {:ok, _offer} <-
+           OfferHunters.get_offer_by_id(id) do
+      OfferHunters.delete_offer_by_id(id)
+
+      conn
+      |> put_status(:ok)
+      |> render("offer", offer: "Offer deleted!")
+    end
+  end
 end
