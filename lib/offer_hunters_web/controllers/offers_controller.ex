@@ -55,7 +55,7 @@ defmodule OfferHuntersWeb.OfferController do
 
       conn
       |> put_status(:ok)
-      |> render("offer", offer: "Offer deleted!")
+      |> render("offer.json", offer: "Offer deleted!")
     end
   end
 end

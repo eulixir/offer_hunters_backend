@@ -2,15 +2,12 @@ defmodule OfferHunters.Offers.Delete do
   @moduledoc """
     Module for delete Offer
   """
-  alias OfferHunters.{Offer, Repo}
+  alias OfferHunters.{Error, Offer, Repo}
 
   def call(id) do
-    id
-    |> OfferHunters.get_offer_by_id()
-    |> handle_delete()
+    case Repo.get(Offer, id) do
+      nil -> {:error, Error.build(:not_found, "This offer doesn't exist'")}
+      offer -> Repo.delete(offer)
+    end
   end
-
-  defp handle_delete({:ok, %Offer{id: id}}), do: Repo.delete(id)
-
-  defp handle_delete({:error, reason}), do: {:error, reason}
 end
