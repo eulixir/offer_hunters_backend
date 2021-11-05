@@ -98,7 +98,9 @@ defmodule OfferHunters.Offers.Create do
     |> handle_insert()
   end
 
-  defp handle_insert({:ok, %Offer{}} = result), do: result
+  defp handle_insert({:ok, %Offer{id: id}}) do
+    {:ok, Repo.preload(Repo.get(Offer, id), :user)}
+  end
 
   defp handle_insert({:error, result}), do: {:error, Error.build(:bad_request, result)}
 end
