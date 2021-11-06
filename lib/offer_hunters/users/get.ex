@@ -46,8 +46,8 @@ defmodule OfferHunters.Users.Get do
           | {:error, %OfferHunters.Error{result: String.t(), status: :not_found}}
 
   def by_email(email) do
-    case Repo.preload(Repo.get_by(User, email: email), :offers) do
-      %User{} = user -> {:ok, user}
+    case Repo.preload(Repo.get_by(User, email: email), [:offers, :comments]) do
+      %User{id: id} -> {:ok, Repo.preload(Repo.get(User, id), [:offers, :comments])}
       nil -> {:error, Error.build(:not_found, "Email does not exist")}
     end
   end
@@ -75,12 +75,15 @@ defmodule OfferHunters.Users.Get do
             }
           ]
 
-  def all_users, do: Repo.preload(Repo.all(User), :offers)
+  def all_users, do: Repo.preload(Repo.all(User), [:offers, :comments])
 
   def by_id(id) do
-    case Repo.get(User, id) do
-      %User{} = user -> {:ok, user}
-      nil -> {:error, Error.build(:not_found, "Email does not exist")}
-    end
+    banana =
+      case Repo.preload(Repo.get(User, id), [:offers, :comments]) do
+        %User{id: id} -> {:ok, Repo.preload(Repo.get(User, id), [:offers, :comments])}
+        nil -> {:error, Error.build(:not_found, "Email does not exist")}
+      end
+
+    banana
   end
 end

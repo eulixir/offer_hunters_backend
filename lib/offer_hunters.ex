@@ -2,6 +2,7 @@ defmodule OfferHunters do
   @moduledoc """
     Fachade to turn application more fexible and more friendly to developer
   """
+  alias OfferHunters.Comments.Create, as: CommentCreate
 
   alias OfferHunters.Offers.Create, as: OffersCreate
   alias OfferHunters.Offers.Delete, as: OffersDelete
@@ -10,6 +11,8 @@ defmodule OfferHunters do
 
   alias OfferHunters.Users.Create, as: UsersCreate
   alias OfferHunters.Users.Get, as: UsersGet
+
+  defdelegate create_comment(params), to: CommentCreate, as: :call
 
   defdelegate create_user(params), to: UsersCreate, as: :call
 

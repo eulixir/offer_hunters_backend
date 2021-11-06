@@ -22,9 +22,11 @@ defmodule OfferHunters.Comments.Create do
 
   defp handle_insert({:error, result}), do: {:error, Error.build(:bad_request, result)}
 
-  defp validate_ids(%{user_id: user_id, offer_id: offer_id}) do
-    IO.inspect(OfferHunters.get_user_by_email(user_id))
-
+  defp validate_ids(%{
+         "comment" => _comment,
+         "offer_id" => offer_id,
+         "user_id" => user_id
+       }) do
     with {:ok, %Offer{}} <- OfferHunters.get_offer_by_id(offer_id),
          {:ok, %User{}} <- OfferHunters.get_user_by_id(user_id),
          do: {:ok, "Id's verified"}

@@ -13,7 +13,7 @@ defmodule OfferHunters.Comment do
     :user_id
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
-  @derive {Jason.Encoder, only: [:id] ++ @required_params ++ [:user, :offer]}
+  @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
   schema "comments" do
     field :comment, :string

@@ -35,6 +35,12 @@ defmodule OfferHuntersWeb.Router do
     put "/verify_offer", OfferController, :verify_offer
   end
 
+  scope "/comment", OfferHuntersWeb do
+    pipe_through :api
+
+    post "create", CommentController, :create
+  end
+
   # Enables LiveDashboard only for development
   #
   # If you want to use the LiveDashboard in production, you should put

@@ -17,7 +17,7 @@ defmodule OfferHunters.Offer do
     :valid
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
-  @derive {Jason.Encoder, only: [:id] ++ @required_params ++ [:user]}
+  @derive {Jason.Encoder, only: [:id] ++ @required_params ++ [:user, :comments]}
 
   schema "offers" do
     field :description, :string

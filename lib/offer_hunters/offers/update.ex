@@ -14,6 +14,6 @@ defmodule OfferHunters.Offers.Update do
     |> Offer.changeset(%{valid: true})
     |> Repo.update()
 
-    {:ok, Repo.preload(Repo.get(Offer, offer.id), :user)}
+    {:ok, Repo.preload(Repo.get(Offer, offer.id), [:user, :comments])}
   end
 end
