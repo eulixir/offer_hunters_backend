@@ -42,15 +42,11 @@ defmodule OfferHunters.Offers.Get do
   """
   @spec by_query(String.t()) :: {:ok, list()}
   def by_query(params) do
-    banana =
-      {:ok,
-       Repo.preload(Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%")), [
-         :comments,
-         :user
-       ])}
-
-    IO.inspect(banana)
-    banana
+    {:ok,
+     Repo.preload(Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%")), [
+       :comments,
+       :user
+     ])}
   end
 
   @doc """

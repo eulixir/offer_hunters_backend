@@ -6,8 +6,6 @@ defmodule OfferHuntersWeb.UserView do
   def render("get_all.json", %{users: users}), do: %{users: users}
 
   def render("user.json", %{user: user}) do
-    IO.inspect(user)
-
     %{
       user: %{
         name: user.name,

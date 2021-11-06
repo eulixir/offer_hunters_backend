@@ -1,5 +1,8 @@
 defmodule OfferHunters.Offers.Update do
-  alias OfferHunters.{Error, Repo, Offer}
+  @moduledoc """
+  Module for update offer
+  """
+  alias OfferHunters.{Error, Offer, Repo}
 
   def verify_offer(id) do
     Offer

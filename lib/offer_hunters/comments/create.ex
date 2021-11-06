@@ -2,7 +2,7 @@ defmodule OfferHunters.Comments.Create do
   @moduledoc """
     Module for create comments
   """
-  alias OfferHunters.{Comment, Error, Offer, User, Repo}
+  alias OfferHunters.{Comment, Error, Offer, Repo, User}
 
   def call(%{} = params) do
     case validate_ids(params) do
