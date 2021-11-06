@@ -58,4 +58,14 @@ defmodule OfferHuntersWeb.OfferController do
       |> render("offer.json", offer: "Offer deleted!")
     end
   end
+
+  def verify_offer(conn, %{"id" => id}) do
+    with {:ok, %Offer{}} <- OfferHunters.get_offer_by_id(id) do
+      {:ok, offer} = OfferHunters.verify_offer(id)
+
+      conn
+      |> put_status(:ok)
+      |> render("offer.json", offer: offer)
+    end
+  end
 end

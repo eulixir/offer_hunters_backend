@@ -6,6 +6,7 @@ defmodule OfferHunters do
   alias OfferHunters.Offers.Create, as: OffersCreate
   alias OfferHunters.Offers.Delete, as: OffersDelete
   alias OfferHunters.Offers.Get, as: OffersGet
+  alias OfferHunters.Offers.Update, as: OffersUpdate
 
   alias OfferHunters.Users.Create, as: UsersCreate
   alias OfferHunters.Users.Get, as: UsersGet
@@ -25,4 +26,6 @@ defmodule OfferHunters do
   defdelegate get_offer_by_id(params), to: OffersGet, as: :by_id
 
   defdelegate delete_offer_by_id(id), to: OffersDelete, as: :call
+
+  defdelegate verify_offer(id), to: OffersUpdate, as: :verify_offer
 end

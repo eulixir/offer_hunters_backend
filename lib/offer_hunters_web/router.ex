@@ -31,6 +31,8 @@ defmodule OfferHuntersWeb.Router do
     get "/get_by_query", OfferController, :get_by_query
 
     delete "/delete", OfferController, :delete_by_id
+
+    put "/verify_offer", OfferController, :verify_offer
   end
 
   # Enables LiveDashboard only for development
