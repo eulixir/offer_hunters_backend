@@ -1,21 +1,27 @@
-defmodule OfferHunters.User do
+defmodule OfferHunters.Comment do
   @moduledoc """
-    Create Schema for User
+    Create Schema for comment
   """
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_params [:email, :profile_picture, :name]
+  alias OfferHunters.{Offer, User}
+
+  @required_params [
+    :comment,
+    :name,
+    :created_date
+  ]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
-  schema "users" do
-    field :email, :string
+  schema "comments" do
+    field :comment, :string
     field :name, :string
-    field :profile_picture, :string
+    field :created_date, :string
 
-    has_many :offers, OfferHunters.Offer
-    has_many :comments, OfferHunters.Comment
+    belongs_to :user, User, type: :binary_id
+    belongs_to :offer, Offer, type: :binary_id
 
     timestamps()
   end
@@ -28,6 +34,7 @@ defmodule OfferHunters.User do
     user
     |> cast(attrs, @required_params)
     |> validate_required(@required_params)
-    |> unique_constraint(:email)
+    |> cast_assoc(:user)
+    |> cast_assoc(:offer)
   end
 end

@@ -9,6 +9,7 @@ defmodule OfferHunters.Repo.Migrations.CreateOffers do
       add :image, :text
       add :expiration_date, :string
       add :value, :decimal
+      add :valid, :boolean
 
       add :user_id, references(:users, type: :binary_id)
 

@@ -57,7 +57,9 @@ defmodule OfferHunters.Users.Create do
     |> handle_insert()
   end
 
-  defp handle_insert({:ok, user}), do: {:ok, user}
+  defp handle_insert({:ok, %User{id: id}}) do
+    {:ok, Repo.preload(Repo.get(User, id), [:offers, :comments])}
+  end
 
   defp handle_insert(
          {:error, %Ecto.Changeset{errors: [email: {"has already been taken", _reason}]}}

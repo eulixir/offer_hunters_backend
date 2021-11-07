@@ -43,7 +43,10 @@ defmodule OfferHunters.Offers.Get do
   @spec by_query(String.t()) :: {:ok, list()}
   def by_query(params) do
     {:ok,
-     Repo.preload(Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%")), :user)}
+     Repo.preload(Repo.all(from o in Offer, where: like(o.description, ^"%#{params}%")), [
+       :comments,
+       :user
+     ])}
   end
 
   @doc """
@@ -80,7 +83,7 @@ defmodule OfferHunters.Offers.Get do
   @spec by_id(String.t()) ::
           {:ok, %Offer{}} | {:error, %Error{result: String.t(), status: :bad_request}}
   def by_id(id) do
-    case Repo.preload(Repo.get(Offer, id), :user) do
+    case Repo.preload(Repo.get(Offer, id), [:user, :comments]) do
       %Offer{} = offer -> {:ok, offer}
       nil -> {:error, Error.build(:bad_request, "This offer doesn't exist")}
     end
