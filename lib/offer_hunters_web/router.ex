@@ -39,6 +39,8 @@ defmodule OfferHuntersWeb.Router do
     pipe_through :api
 
     post "create", CommentController, :create
+
+    delete "delete", CommentController, :delete
   end
 
   # Enables LiveDashboard only for development
