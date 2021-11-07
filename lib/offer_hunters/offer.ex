@@ -25,7 +25,7 @@ defmodule OfferHunters.Offer do
     field :image, :string
     field :expiration_date, :string
     field :value, :decimal
-    field :valid, :boolean
+    field :valid, :boolean, default: false
 
     belongs_to :user, User, type: :binary_id
     has_many :comments, OfferHunters.Comment

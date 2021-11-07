@@ -9,14 +9,16 @@ defmodule OfferHunters.Comment do
 
   @required_params [
     :comment,
-    :offer_id,
-    :user_id
+    :name,
+    :created_date
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
   schema "comments" do
     field :comment, :string
+    field :name, :string
+    field :created_date, :string
 
     belongs_to :user, User, type: :binary_id
     belongs_to :offer, Offer, type: :binary_id

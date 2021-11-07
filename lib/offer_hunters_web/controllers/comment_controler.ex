@@ -9,8 +9,10 @@ defmodule OfferHuntersWeb.CommentController do
         conn,
         %{
           "comment" => comment,
+          "name" => name,
           "offer_id" => offer_id,
-          "user_id" => user_id
+          "user_id" => user_id,
+          "created_date" => created_date
         } = params
       ) do
     with {:ok, %Offer{}} <- OfferHunters.get_offer_by_id(offer_id),
@@ -18,7 +20,7 @@ defmodule OfferHuntersWeb.CommentController do
          {:ok, %Comment{}} <- OfferHunters.create_comment(params) do
       conn
       |> put_status(:created)
-      |> render("created.json", comment: comment)
+      |> render("created.json", comment: comment, name: name, created_date: created_date)
     end
   end
 end

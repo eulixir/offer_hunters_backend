@@ -25,7 +25,8 @@ defmodule OfferHunters.Comments.Create do
   defp validate_ids(%{
          "comment" => _comment,
          "offer_id" => offer_id,
-         "user_id" => user_id
+         "user_id" => user_id,
+         "created_date" => _created_date
        }) do
     with {:ok, %Offer{}} <- OfferHunters.get_offer_by_id(offer_id),
          {:ok, %User{}} <- OfferHunters.get_user_by_id(user_id),
