@@ -53,7 +53,7 @@ defmodule OfferHuntersWeb.Endpoint do
     origin: [
       "http://localhost:8080",
       "http://localhost:3000",
-      "https://ryandls.github.io/offers-hunters/"
+      "https://ryandls.github.io"
     ]
 
   plug OfferHuntersWeb.Router
