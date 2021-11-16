@@ -50,10 +50,18 @@ defmodule OfferHunters.Users.Create do
           {:ok, %User{}}
           | {:error, %OfferHunters.Error{result: String.t(), status: :bad_request}}
 
-  def call(%{} = params) do
+  def call(%{"email" => _email} = params) do
     params
+    |> Map.put("admin", false)
     |> User.changeset()
+    |> Repo.insert()
+    |> handle_insert()
+  end
+
+  def call(%{email: _email} = params) do
+    params
     |> Map.put(:admin, false)
+    |> User.changeset()
     |> Repo.insert()
     |> handle_insert()
   end
