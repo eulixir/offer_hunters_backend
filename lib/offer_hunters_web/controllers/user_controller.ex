@@ -35,11 +35,11 @@ defmodule OfferHuntersWeb.UserController do
   end
 
   def get_by_email(conn, %{"email" => email}) do
-    with {:ok, _user} <-
+    with {:ok, user} <-
            OfferHunters.get_user_by_email(email) do
       conn
       |> put_status(:ok)
-      |> render("user_message.json", message: "The user is valid!")
+      |> render("user_message.json", user: user)
     end
   end
 end
