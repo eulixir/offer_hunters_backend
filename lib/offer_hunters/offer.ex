@@ -37,8 +37,8 @@ defmodule OfferHunters.Offer do
     changeset(%__MODULE__{}, attrs)
   end
 
-  def changeset(user, attrs) do
-    user
+  def changeset(offer, attrs) do
+    offer
     |> cast(attrs, @required_params)
     |> validate_required(@required_params)
     |> unique_constraint(:promotion_link)

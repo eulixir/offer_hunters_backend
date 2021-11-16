@@ -7,6 +7,7 @@ defmodule OfferHunters.Repo.Migrations.CreateUsers do
       add :email, :string
       add :profile_picture, :string
       add :name, :string
+      add :admin, :boolean
 
       timestamps()
     end

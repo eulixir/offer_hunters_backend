@@ -8,6 +8,7 @@ defmodule OfferHunters.Repo.Migrations.CreateComments do
       add :name, :string
       add :created_date, :string
 
+
       add :user_id, references(:users, type: :binary_id)
       add :offer_id, references(:offers, type: :binary_id)
 

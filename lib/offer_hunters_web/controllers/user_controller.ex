@@ -26,12 +26,20 @@ defmodule OfferHuntersWeb.UserController do
     |> render("get_all.json", users: users)
   end
 
+  def set_admin(conn, %{"email" => email}) do
+    with {:ok, message} <- OfferHunters.Users.Update.set_admin(email) do
+      conn
+      |> put_status(:ok)
+      |> render("user_message.json", message: message)
+    end
+  end
+
   def get_by_email(conn, %{"email" => email}) do
-    with {:ok, user} <-
+    with {:ok, _user} <-
            OfferHunters.get_user_by_email(email) do
       conn
       |> put_status(:ok)
-      |> render("user.json", user: user)
+      |> render("user_message.json", message: "The user is valid!")
     end
   end
 end

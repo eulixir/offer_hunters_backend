@@ -19,6 +19,8 @@ defmodule OfferHuntersWeb.Router do
     get "/get_all", UserController, :get_all
 
     get "/get_by_email", UserController, :get_by_email
+
+    put "/set_admin", UserController, :set_admin
   end
 
   scope "/offer", OfferHuntersWeb do

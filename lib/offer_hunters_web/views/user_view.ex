@@ -5,6 +5,8 @@ defmodule OfferHuntersWeb.UserView do
 
   def render("get_all.json", %{users: users}), do: %{users: users}
 
+  def render("user_message.json", %{message: message}), do: %{message: message}
+
   def render("user.json", %{user: user}) do
     %{
       user: %{

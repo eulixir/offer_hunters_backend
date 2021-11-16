@@ -5,7 +5,7 @@ defmodule OfferHunters.User do
   use Ecto.Schema
   import Ecto.Changeset
 
-  @required_params [:email, :profile_picture, :name]
+  @required_params [:email, :profile_picture, :name, :admin]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
 
@@ -13,6 +13,7 @@ defmodule OfferHunters.User do
     field :email, :string
     field :name, :string
     field :profile_picture, :string
+    field :admin, :boolean, default: false
 
     has_many :offers, OfferHunters.Offer
     has_many :comments, OfferHunters.Comment
