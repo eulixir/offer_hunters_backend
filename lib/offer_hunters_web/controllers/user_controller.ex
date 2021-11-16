@@ -1,7 +1,7 @@
 defmodule OfferHuntersWeb.UserController do
   use OfferHuntersWeb, :controller
 
-  alias OfferHunters.User
+  alias OfferHunters.{User, Users.Update}
 
   action_fallback OfferHuntersWeb.FallbackController
 
@@ -27,7 +27,7 @@ defmodule OfferHuntersWeb.UserController do
   end
 
   def set_admin(conn, %{"email" => email}) do
-    with {:ok, message} <- OfferHunters.Users.Update.set_admin(email) do
+    with {:ok, message} <- Update.set_admin(email) do
       conn
       |> put_status(:ok)
       |> render("user_message.json", message: message)

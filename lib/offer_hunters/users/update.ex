@@ -1,5 +1,8 @@
 defmodule OfferHunters.Users.Update do
-  alias OfferHunters.{Error, User, Repo}
+  @moduledoc """
+    Module for update User
+  """
+  alias OfferHunters.{Repo, User}
 
   def set_admin(email) do
     case OfferHunters.get_user_by_email(email) do
