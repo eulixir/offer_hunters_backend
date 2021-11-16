@@ -93,6 +93,7 @@ defmodule OfferHunters.Offers.Create do
   defp create_offer(params, id) do
     params
     |> Map.put(:user_id, id)
+    |> Map.put(:valid, false)
     |> Offer.changeset()
     |> Repo.insert()
     |> handle_insert()
