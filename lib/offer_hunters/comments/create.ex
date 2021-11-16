@@ -9,7 +9,6 @@ defmodule OfferHunters.Comments.Create do
       {:ok, _message} ->
         params
         |> Comment.changeset()
-        |> IO.inspect()
         |> Repo.insert()
         |> handle_insert()
 
