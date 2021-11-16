@@ -10,7 +10,7 @@ defmodule OfferHunters.Offers.GetTest do
 
   describe "by_query/1" do
     test "When the terms on query exsists, returns a list of offers" do
-      %User{id: user_id, email: email} = insert(:user)
+      %User{id: user_id, email: _email} = insert(:user)
       insert(:offer, user_id: user_id)
 
       {:ok,

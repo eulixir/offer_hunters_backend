@@ -34,7 +34,8 @@ defmodule OfferHunters.UserTest do
              errors: [
                email: {"can't be blank", [validation: :required]},
                profile_picture: {"can't be blank", [validation: :required]},
-               name: {"can't be blank", [validation: :required]}
+               name: {"can't be blank", [validation: :required]},
+               admin: {"can't be blank", [validation: :required]}
              ],
              valid?: false
            } = response

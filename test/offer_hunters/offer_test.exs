@@ -42,7 +42,8 @@ defmodule OfferHunters.OfferTest do
                image: {"can't be blank", [validation: :required]},
                expiration_date: {"can't be blank", [validation: :required]},
                value: {"can't be blank", [validation: :required]},
-               user_id: {"can't be blank", [validation: :required]}
+               user_id: {"can't be blank", [validation: :required]},
+               valid: {"can't be blank", [validation: :required]}
              ],
              valid?: false
            } = response

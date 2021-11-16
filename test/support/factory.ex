@@ -10,7 +10,8 @@ defmodule OfferHunters.Factory do
     %{
       "email" => "jp@banana.com",
       "name" => "Jp",
-      "profile_picture" => "src/banana"
+      "profile_picture" => "src/banana",
+      "admin" => false
     }
   end
 
@@ -18,7 +19,8 @@ defmodule OfferHunters.Factory do
     %User{
       email: "jp@banana.com",
       name: "jp",
-      profile_picture: "src/banana"
+      profile_picture: "src/banana",
+      admin: false
     }
   end
 
@@ -30,7 +32,8 @@ defmodule OfferHunters.Factory do
       "promotion_link" =>
         "https =>//www.terabyteshop.com.br/produto/19609/placa-de-video-galax-geforce-rtx-3080-hof-lhr-10gb-gddr6x-dlss-ray-tracing-38nwm3md3bjj?p=714486#banana",
       "value" => 10_999.0,
-      "user_id" => "a66d859c-b3e4-4482-8460-615d97f91eab"
+      "user_id" => "a66d859c-b3e4-4482-8460-615d97f91eab",
+      "valid" => false
     }
   end
 
@@ -42,7 +45,8 @@ defmodule OfferHunters.Factory do
       promotion_link:
         "https =>//www.terabyteshop.com.br/produto/19609/placa-de-video-galax-geforce-rtx-3080-hof-lhr-10gb-gddr6x-dlss-ray-tracing-38nwm3md3bjj?p=714486#banana",
       value: 10_999.0,
-      user_id: "a66d859c-b3e4-4482-8460-615d97f91eab"
+      user_id: "a66d859c-b3e4-4482-8460-615d97f91eab",
+      valid: false
     }
   end
 
@@ -53,7 +57,8 @@ defmodule OfferHunters.Factory do
       image: "src/banana",
       promotion_link:
         "https =>//www.terabyteshop.com.br/produto/19609/placa-de-video-galax-geforce-rtx-3080-hof-lhr-10gb-gddr6x-dlss-ray-tracing-38nwm3md3bjj?p=714486#banana",
-      value: 10_999.0
+      value: 10_999.0,
+      valid: false
     }
   end
 end
