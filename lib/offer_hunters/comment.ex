@@ -10,7 +10,9 @@ defmodule OfferHunters.Comment do
   @required_params [
     :comment,
     :name,
-    :created_date
+    :created_date,
+    :user_id,
+    :offer_id
   ]
   @primary_key {:id, :binary_id, autogenerate: true}
   @derive {Jason.Encoder, only: [:id] ++ @required_params}
@@ -34,7 +36,7 @@ defmodule OfferHunters.Comment do
     user
     |> cast(attrs, @required_params)
     |> validate_required(@required_params)
-    |> cast_assoc(:user)
     |> cast_assoc(:offer)
+    |> cast_assoc(:user)
   end
 end
