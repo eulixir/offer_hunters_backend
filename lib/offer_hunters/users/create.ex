@@ -53,6 +53,7 @@ defmodule OfferHunters.Users.Create do
   def call(%{} = params) do
     params
     |> User.changeset()
+    |> Map.put(:admin, false)
     |> Repo.insert()
     |> handle_insert()
   end

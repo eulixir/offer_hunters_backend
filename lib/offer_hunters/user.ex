@@ -13,7 +13,7 @@ defmodule OfferHunters.User do
     field :email, :string
     field :name, :string
     field :profile_picture, :string
-    field :admin, :boolean, default: false
+    field :admin, :boolean
 
     has_many :offers, OfferHunters.Offer
     has_many :comments, OfferHunters.Comment
